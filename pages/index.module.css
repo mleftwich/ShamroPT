@@ -74,7 +74,7 @@
 }
 .main .slogan {
   font-size: medium;
-  text-decoration: underline;
+  font-weight: bold;
   color: rgb(0, 55, 0);
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
