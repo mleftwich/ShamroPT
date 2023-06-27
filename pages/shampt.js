@@ -1,11 +1,11 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import styles from "./index.module.css";
-
+import CircularProgress from '@mui/material/CircularProgress'
 export default function Home() {
   const [prompt, setPrompt] = useState("");
   const [result, setResult] = useState("");
-
+  const [loading, setLoading] = useState(false);
   
 
   useEffect(() => {
@@ -17,6 +17,7 @@ export default function Home() {
 
   async function onSubmit(event) {
     event.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -33,6 +34,7 @@ export default function Home() {
 
       setResult(data.result);
       setPrompt("");
+      setLoading(false);
     } catch(error) {
       // Consider implementing your own error handling logic here
       console.error(error);
@@ -45,7 +47,7 @@ export default function Home() {
     <div>
       <Head>
         <title>ShamroPT</title>
-        <link rel="icon" href="/lep.png" />
+        <link rel="icon" href="./favicon.ico?" type="image/x-icon" />
       </Head>
 
       <main className={styles.main}>
@@ -65,7 +67,10 @@ export default function Home() {
         </form>
         <hr className={styles.break}/>
       
-        <div className={styles.result}>{result && `"${result}"`}</div>
+        <div className={styles.result}>
+          {loading && <CircularProgress style={{color: 'green'}}/>}
+          {result && `"${result}"`}
+          </div>
     
       </main>
     </div>

@@ -1,7 +1,7 @@
 import styles from './index.module.css'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-
+import Head from "next/head";
 export default function App() {
   const router = useRouter()
 let password = "potatoes"
@@ -29,6 +29,11 @@ useEffect(() => {
 }, [login])
 
 return (
+  <div>
+  <Head>
+  <title>ShamroPT</title>
+  <link rel="icon" href="favicon.ico?" type="image/x-icon" />
+</Head>
   <main className={styles.main}>
   <div className={styles.div}>
     <form onSubmit={onSubmit}>
@@ -38,5 +43,6 @@ return (
     </form>
   </div>
   </main>
+  </div>
 )
 }

@@ -30,6 +30,7 @@
 .main .icon {
   width: 30%;
   height: auto;
+  color: red;
 }
 .main h3 {
   font-size: 32px;
