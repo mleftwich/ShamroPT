@@ -30,7 +30,7 @@ useEffect(() => {
 
 return (
   <main className={styles.main}>
-  <div>
+  <div className={styles.div}>
     <form onSubmit={onSubmit}>
     <input name="password" type="text" placeholder="password" onChange={(e) => setEntered(e.target.value)} />
     <br />

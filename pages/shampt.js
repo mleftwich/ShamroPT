@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-    <div className={styles.div}>
+    <div>
       <Head>
         <title>ShamroPT</title>
         <link rel="icon" href="/lep.png" />
