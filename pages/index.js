@@ -18,7 +18,9 @@ let [login, setLogin] = useState(false)
 
 useEffect(() => {
   if (login) {
+    localStorage.setItem('login', 'true')
     router.push('/shampt')
+
     setTimeout(() => {
       setLogin(false)
     }, 5000)

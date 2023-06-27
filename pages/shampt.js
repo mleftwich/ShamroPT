@@ -1,10 +1,19 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
   const [result, setResult] = useState("");
+
+  
+
+  useEffect(() => {
+    const login = localStorage.getItem("login");
+    if (!login) {
+          window.location.href = "/";
+        }
+      }, [])
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -32,7 +41,8 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
+    <div className={styles.div}>
       <Head>
         <title>ShamroPT</title>
         <link rel="icon" href="/lep.png" />
@@ -53,8 +63,12 @@ export default function Home() {
           />
           <input type="submit" value="Keep your guard up" />
         </form>
-        <div className={styles.result}>"{result}"</div>
+        <hr className={styles.break}/>
+      
+        <div className={styles.result}>{result && `"${result}"`}</div>
+    
       </main>
+    </div>
     </div>
   );
 }

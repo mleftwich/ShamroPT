@@ -76,5 +76,23 @@
   font-size: medium;
   font-weight: bold;
   color: rgb(0, 55, 0);
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.div {
+  display: flex;
+  border: 1px solid rgb(86, 86, 86);
+  box-shadow: 2px 2px 2px #b4b4b4;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 1rem;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.break {
+  color: black;
+  height: 1px;
 }
