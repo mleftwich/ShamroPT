@@ -52,7 +52,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-      <h3>ShamroPT</h3>
+      <h1>ShamroPT</h1>
         <img src="/lep.png" className={styles.icon} />
       
         <p className={styles.slogan}>Ask An Angry Irishman</p>
@@ -60,16 +60,16 @@ export default function Home() {
           <input
             type="text"
             name="prompt"
-            placeholder="Choose your words carefully"
+            placeholder="Give it a lash"
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
           />
-          <input type="submit" value="Keep your guard up" />
+          <input type="submit" value="G'wan Eejit" />
         </form>
         <hr className={styles.break}/>
       
-        <img src="https://i.pinimg.com/736x/a4/4b/be/a44bbe0a277554f17c35edbfb417ddc5.jpg" />
-        
+        <img src="/clover.png" className={styles.clover} />
+
         <div className={styles.result}>
           
           {loading && <CircularProgress style={{color: 'green'}}/>}
