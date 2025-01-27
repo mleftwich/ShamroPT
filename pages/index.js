@@ -35,8 +35,8 @@ return (
   <link rel="icon" href="favicon.ico?" type="image/x-icon" />
 </Head>
   <main className={styles.main}>
+  <h1>Stall the ball lad</h1>
   <div className={styles.div}>
-    <h1>Stall the ball lad</h1>
     <form onSubmit={onSubmit}>
     <input name="password" type="text" placeholder="password" onChange={(e) => setEntered(e.target.value)} />
     <br />
