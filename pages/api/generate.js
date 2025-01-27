@@ -1,12 +1,12 @@
-const { Configuration, OpenAIApi } = require("openai");
+import OpenAI from "openai";
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY, // Set your API key in environment variables
 });
-const openai = new OpenAIApi(configuration);
 
 export default async function (req, res) {
-  if (!configuration.apiKey) {
+  // Check for API key
+  if (!process.env.OPENAI_API_KEY) {
     res.status(500).json({
       error: {
         message: "OpenAI API key not configured, please follow instructions in README.md",
@@ -19,41 +19,39 @@ export default async function (req, res) {
   if (prompt.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "come out ye black and tan - ask a fookin question",
+        message: "Prompt cannot be empty.",
       },
     });
     return;
   }
 
   try {
-    const completion = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo", // Use "gpt-4" for more advanced results
+    // Create chat completion
+    const completion = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo", // or "gpt-4"
       messages: [
         {
           role: "system",
-          content: "You are a traditional, angry, drunk, and offensive Irishman with a thick accent. Answer questions accordingly.",
+          content: "You are a traditional, angry, drunk, and offensive Irishman with a thick accent. Respond to every question or prompt in character.",
         },
         { role: "user", content: prompt },
       ],
-      temperature: 0.6,
-      max_tokens: 200,
     });
 
-    res.status(200).json({ result: completion.data.choices[0].message.content });
+    res.status(200).json({ result: completion.choices[0].message.content });
   } catch (error) {
-    // Enhanced error handling for better debugging
     if (error.response) {
       console.error("API Response Error:", error.response.status, error.response.data);
       res.status(error.response.status).json({
         error: {
-          message: `API Error: ${error.response.data.error.message}`,
+          message: error.response.data.error?.message || "Unknown error from OpenAI API",
         },
       });
     } else {
-      console.error(`Error with OpenAI API request: ${error.message}`);
+      console.error("Unexpected Error:", error.message, error.stack);
       res.status(500).json({
         error: {
-          message: "Unexpected server error occurred. Please try again later.",
+          message: "Unexpected server error occurred.",
         },
       });
     }
