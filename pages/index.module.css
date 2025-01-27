@@ -54,7 +54,6 @@
 .main .result {
   margin-top: 40px;
   height: auto;
-  font-style: italic;
   color: white;
   width: 100%;
   text-align: center;
@@ -64,6 +63,7 @@
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.6);
   font-family: 'Caveat';
+  font-size: 1rem;
 }
 .main .slogan {
   font-size: 3rem;
