@@ -34,7 +34,6 @@ export default function Home() {
       }
 
       setResult(data.result);
-      setPrompt("");
       setLoading(false);
     } catch(error) {
       console.error(error);
@@ -68,7 +67,7 @@ export default function Home() {
         <hr className={styles.break}/>
       
         <img src="/clover.png" className={styles.clover} />
-
+        {prompt && <h3>${prompt}</h3>}
         <div className={styles.result}>
           
           {loading && <CircularProgress style={{color: 'white'}}/>}
