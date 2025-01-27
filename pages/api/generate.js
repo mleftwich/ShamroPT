@@ -41,15 +41,19 @@ export default async function (req, res) {
 
     res.status(200).json({ result: completion.data.choices[0].message.content });
   } catch (error) {
-    // Adjust error handling logic
+    // Enhanced error handling for better debugging
     if (error.response) {
-      console.error(error.response.status, error.response.data);
-      res.status(error.response.status).json(error.response.data);
+      console.error("API Response Error:", error.response.status, error.response.data);
+      res.status(error.response.status).json({
+        error: {
+          message: `API Error: ${error.response.data.error.message}`,
+        },
+      });
     } else {
       console.error(`Error with OpenAI API request: ${error.message}`);
       res.status(500).json({
         error: {
-          message: "theyve fookin got to ooz lads absolutley fluthered",
+          message: "Unexpected server error occurred. Please try again later.",
         },
       });
     }
