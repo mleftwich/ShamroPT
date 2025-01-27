@@ -52,7 +52,6 @@
   cursor: pointer;
 }
 .main .result {
-  font-weight: bold;
   margin-top: 40px;
   height: auto;
   font-style: italic;

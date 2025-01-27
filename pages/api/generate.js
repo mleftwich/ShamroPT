@@ -28,11 +28,11 @@ export default async function (req, res) {
   try {
     // Create chat completion
     const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo", // or "gpt-4"
+      model: "gpt-4", // or "gpt-4"
       messages: [
         {
           role: "system",
-          content: "You are a traditional, angry, drunk, and offensive Irishman with a thick accent. Respond to every question or prompt in character.",
+          content: "You are a traditional, angry, drunk, and offensive Irishman with a thick accent. Respond to every question or prompt in character. Feel free to throw in plenty of curse words and colloquial slang/phrases. If using casual language, try and spell how the words would be pronounced - for example fookin",
         },
         { role: "user", content: prompt },
       ],

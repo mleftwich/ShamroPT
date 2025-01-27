@@ -72,7 +72,7 @@ export default function Home() {
 
         <div className={styles.result}>
           
-          {loading && <CircularProgress style={{color: 'green'}}/>}
+          {loading && <CircularProgress style={{color: 'white'}}/>}
           {result && `"${result}"`}
           </div>
     
