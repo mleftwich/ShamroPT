@@ -1,7 +1,7 @@
+import CircularProgress from '@mui/material/CircularProgress';
 import Head from "next/head";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./index.module.css";
-import CircularProgress from '@mui/material/CircularProgress'
 export default function Home() {
   const [prompt, setPrompt] = useState("");
   const [result, setResult] = useState("");
@@ -16,6 +16,7 @@ export default function Home() {
       }, [])
 
   async function onSubmit(event) {
+    setResult("")
     event.preventDefault();
     setLoading(true);
     try {
@@ -68,6 +69,7 @@ export default function Home() {
         <hr className={styles.break}/>
       
         <div className={styles.result}>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc7c7Cf4udToCtz-aK6txoU0ru08oQ2YOQ1g7mxj_SWrRy09AAKnqTbHGPrMJnh2HVhPI&usqp=CAU" />
           {loading && <CircularProgress style={{color: 'green'}}/>}
           {result && `"${result}"`}
           </div>

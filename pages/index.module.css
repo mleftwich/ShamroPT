@@ -65,13 +65,16 @@
   cursor: pointer;
 }
 .main .result {
+  background-color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
   margin-top: 40px;
   height: auto;
   font-style: italic;
-  color: green;
+  color: white;
   width: 50%;
   text-align: center;
+  padding: 1rem;
+  border-radius: 5;
 }
 .main .slogan {
   font-size: medium;
