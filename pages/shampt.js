@@ -67,7 +67,6 @@ export default function Home() {
         <hr className={styles.break}/>
       
         <img src="/clover.png" className={styles.clover} />
-        {result && <h3>{prompt}</h3>}
         <div className={styles.result}>
           
           {loading && <CircularProgress style={{color: 'white'}}/>}
