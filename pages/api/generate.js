@@ -10,7 +10,7 @@ export default async function (req, res) {
     res.status(500).json({
       error: {
         message: "OpenAI API key not configured, please follow instructions in README.md",
-      }
+      },
     });
     return;
   }
@@ -20,21 +20,28 @@ export default async function (req, res) {
     res.status(400).json({
       error: {
         message: "come out ye black and tan - ask a fookin question",
-      }
+      },
     });
     return;
   }
 
   try {
-    const completion = await openai.createCompletion({
-      model: "gpt-3.5-turbo-instruct",
-      prompt: generatePrompt(prompt),
+    const completion = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo", // Use "gpt-4" for more advanced results
+      messages: [
+        {
+          role: "system",
+          content: "You are a traditional, angry, drunk, and offensive Irishman with a thick accent. Answer questions accordingly.",
+        },
+        { role: "user", content: prompt },
+      ],
       temperature: 0.6,
-      max_tokens: 200
+      max_tokens: 200,
     });
-    res.status(200).json({ result: completion.data.choices[0].text });
-  } catch(error) {
-    // Consider adjusting the error handling logic for your use case
+
+    res.status(200).json({ result: completion.data.choices[0].message.content });
+  } catch (error) {
+    // Adjust error handling logic
     if (error.response) {
       console.error(error.response.status, error.response.data);
       res.status(error.response.status).json(error.response.data);
@@ -42,14 +49,9 @@ export default async function (req, res) {
       console.error(`Error with OpenAI API request: ${error.message}`);
       res.status(500).json({
         error: {
-          message: 'theyve fookin got to ooz lads absolutley fluthered',
-        }
+          message: "theyve fookin got to ooz lads absolutley fluthered",
+        },
       });
     }
   }
-}
-
-function generatePrompt(prompt) {
- 
-  return `Answer this question with a paragraph as a traditional, angry, drunk and offensive irishman with a thick accent: ${prompt}`;
 }
