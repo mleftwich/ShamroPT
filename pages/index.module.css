@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
 
@@ -24,7 +24,7 @@
   line-height: 40px;
   font-weight: bold;
   color: #202123;
-  font-family: "Irish Grover"
+  font-family: "Teko"
 }
 .main form {
   display: flex;

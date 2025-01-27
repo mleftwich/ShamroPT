@@ -50,7 +50,6 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-      <h1>ShamroPT</h1>
         <img src="/lep.png" className={styles.icon} />
       
         <p className={styles.slogan}>Ask An Angry Irishman</p>
