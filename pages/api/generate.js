@@ -9,7 +9,7 @@ export default async function (req, res) {
   if (!process.env.OPENAI_API_KEY) {
     res.status(500).json({
       error: {
-        message: "OpenAI API key not configured, please follow instructions in README.md",
+        message: "Lost your keys boyo",
       },
     });
     return;
@@ -19,7 +19,7 @@ export default async function (req, res) {
   if (prompt.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Prompt cannot be empty.",
+        message: "Proper fluthered lad",
       },
     });
     return;
@@ -44,14 +44,14 @@ export default async function (req, res) {
       console.error("API Response Error:", error.response.status, error.response.data);
       res.status(error.response.status).json({
         error: {
-          message: error.response.data.error?.message || "Unknown error from OpenAI API",
+          message: error.response.data.error?.message || "The brits are at it again fella",
         },
       });
     } else {
       console.error("Unexpected Error:", error.message, error.stack);
       res.status(500).json({
         error: {
-          message: "Unexpected server error occurred.",
+          message: "Not here fella",
         },
       });
     }

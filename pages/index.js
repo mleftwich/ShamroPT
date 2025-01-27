@@ -1,7 +1,7 @@
-import styles from './index.module.css'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import Head from "next/head";
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import styles from './index.module.css';
 export default function App() {
   const router = useRouter()
 let password = "potatoes"
@@ -36,6 +36,7 @@ return (
 </Head>
   <main className={styles.main}>
   <div className={styles.div}>
+    <h1>Stall the ball lad</h1>
     <form onSubmit={onSubmit}>
     <input name="password" type="text" placeholder="password" onChange={(e) => setEntered(e.target.value)} />
     <br />

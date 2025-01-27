@@ -30,14 +30,13 @@ export default function Home() {
 
       const data = await response.json();
       if (response.status !== 200) {
-        throw data.error || new Error(`potatoes`);
+        throw data.error || new Error(`Come out ye black and tans`);
       }
 
       setResult(data.result);
       setPrompt("");
       setLoading(false);
     } catch(error) {
-      // Consider implementing your own error handling logic here
       console.error(error);
       alert(error.message);
     }
