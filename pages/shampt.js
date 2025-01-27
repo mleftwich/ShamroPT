@@ -68,8 +68,10 @@ export default function Home() {
         </form>
         <hr className={styles.break}/>
       
+        <img src="https://i.pinimg.com/736x/a4/4b/be/a44bbe0a277554f17c35edbfb417ddc5.jpg" />
+        
         <div className={styles.result}>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc7c7Cf4udToCtz-aK6txoU0ru08oQ2YOQ1g7mxj_SWrRy09AAKnqTbHGPrMJnh2HVhPI&usqp=CAU" />
+          
           {loading && <CircularProgress style={{color: 'green'}}/>}
           {result && `"${result}"`}
           </div>
