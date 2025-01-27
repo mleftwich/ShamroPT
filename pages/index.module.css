@@ -4,7 +4,7 @@
 
 .main,
 .main input {
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 24px;
   color: #353740;
   font-family: "Teko", Helvetica, sans-serif;
@@ -20,7 +20,7 @@
   height: auto;
 }
 .main h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   line-height: 40px;
   font-weight: bold;
   color: #202123;
@@ -56,7 +56,7 @@
   height: auto;
   font-style: italic;
   color: white;
-  width: 50%;
+  width: 100%;
   text-align: center;
   padding: 1rem;
   border: solid;
